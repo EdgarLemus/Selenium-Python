@@ -30,14 +30,43 @@ Environment configuration (setUp):
 
 Customer Registration Test (test_registrar_user):
 
--Locate and click a "REGISTER" button on the website to begin the registration process.
--Use the Select procedure to choose a territory from a drop-down menu.
--Submit the registration form.
--Make an assertion (self.assertTrue) to verify that a factor on the page (spelled "Arctyrael") is enabled, which asserts the known record.
+- Locate and click a "REGISTER" button on the website to begin the registration process.
+- Use the Select procedure to choose a territory from a drop-down menu.
+- Submit the registration form.
+- Make an assertion (self.assertTrue) to verify that a factor on the page (spelled "Arctyrael") is enabled, which asserts the known record.
 
 Script execution:
 
-The condition if __name__ == "__main__": guarantees that the script will be executed only if it is done directly as a program.
+- The condition if __name__ == "__main__": guarantees that the script will be executed only if it is done directly as a program.
 
-unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reports', report_name='Registration-test-report')) starts the tests execution.
+- unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reports', report_name='Registration-test-report')) starts the tests execution.
+
+#### reservar_vuelo.py
+
+Este código es otro script de prueba automatizado que utiliza Selenium con Python para secuenciar actividades relacionadas con la reserva de vuelos en un sitio web de ejemplo.
+
+Importación de módulos y clases elementales:
+
+unittest: Importa el módulo unittest, que se utiliza para escribir y realizar pruebas unitarias en Python.
+
+HTMLTestRunner: Importa la clase HTMLTestRunner del módulo pyunitreport. HTMLTestRunner es un generador de informes HTML para pruebas unitarias.
+
+Configuración del entorno (setUp):
+
+Descarga y descomprime la última versión de EdgeDriver desde la URL proporcionada.
+
+Prueba de ejecución de la compra (test_realizar_compra):
+
+Introduzca el nombre y la contraseña del cliente en los campos correspondientes.
+
+Navegue a la página de reserva.
+
+Completar una secuencia de selecciones en los cuestionarios, como elegir el lugar de origen, el mes y día de salida, el lugar de destino, etc.
+
+Ejecución del script:
+
+La condición if __name__ == "__main__": garantiza que el script sólo se ejecutará si se ejecuta directamente como programa.
+
+unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reports', report_name='Reservation-test-report')) inicia la ejecución de las pruebas.
+
 
