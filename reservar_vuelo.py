@@ -9,7 +9,7 @@ from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.support.ui import Select
 
-class CompraTest(unittest.TestCase):
+class ReservaTest(unittest.TestCase):
     def setUp(self):
         # URL del EdgeDriver
         edgedriver_url = "https://msedgedriver.azureedge.net/LATEST_STABLE"
@@ -58,23 +58,28 @@ class CompraTest(unittest.TestCase):
 
     def test_realizar_compra(self):
         driver = self.driver
-
+        
+        # Localiza el campo de usuario y llena el formulario
         usuario = driver.find_element(By.XPATH,"//input[@name='userName']")
         usuario.send_keys('Arctyrael')
 
+        # Localiza el campo de contraseña y llena el formulario
         contraseña = driver.find_element(By.XPATH, "//input[@name='password']")
         contraseña.send_keys('abc123')
 
+        # Localiza el botón de inicio de sesión y haz clic en él
         btnLogin = driver.find_element(By.XPATH,"//input[@name='submit']")
         btnLogin.click()
 
         driver.implicitly_wait(4)
 
+        # Navega a la página de reservas
         reservas = driver.find_element(By.XPATH,"//a[@href='reservation.php']")
         reservas.click()
 
         driver.implicitly_wait(4)
 
+        # Selecciona opciones en los menús desplegables
         dropdown = driver.find_element(By.XPATH, "//select[@name='fromPort']")
         select = Select(dropdown)
         select.select_by_visible_text('London')
@@ -99,9 +104,11 @@ class CompraTest(unittest.TestCase):
         select = Select(dropdown)
         select.select_by_visible_text('6')
 
+        # Selecciona una opción de servicio
         services = driver.find_element(By.XPATH,"//input[@name='servClass']")
         services.click()
 
+        # Continúa con la reserva
         continuar = driver.find_element(By.XPATH,"//input[@name='findFlights']")
         continuar.click()
 
@@ -110,4 +117,4 @@ class CompraTest(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == "__main__":
-    unittest.main(verbosity= 2, testRunner = HTMLTestRunner(output = 'reportes', report_name = 'Compra-test-report'))
+    unittest.main(verbosity= 2, testRunner = HTMLTestRunner(output = 'reportes', report_name = 'Reserva-test-report'))

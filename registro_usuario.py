@@ -59,54 +59,68 @@ class RegistroTest(unittest.TestCase):
 
     def test_registrar_usuario(self):
         driver = self.driver
-        # Variables elementos web
+        
+        # Da clic en el boton register
         btnAcount = driver.find_element(By.XPATH,"//a[text()='REGISTER']")
         btnAcount.click()
 
+        # Ingresa el nombre
         first_name=driver.find_element(By.XPATH,"//input[@name='firstName']")
         first_name.send_keys('fernando')
 
+        # Ingresa el apellido
         last_name=driver.find_element(By.XPATH,"//input[@name='lastName']")
         last_name.send_keys('pullutasig')
 
+        # Ingresa el telefono
         phone = driver.find_element(By.XPATH,"//input[@name='phone']")
         phone.send_keys('3154875128')
 
+        # Ingresa el correo electronico
         email=driver.find_element(By.XPATH,"//input[@name='userName']")
         email.send_keys('ejemplo@correo.com.ec')
 
+        # Ingresa la direccion del hogar
         address =  driver.find_element(By.XPATH,"//input[@name='address1']")
         address.send_keys('calle 56 #87 - 64')
 
+        # Ingresa la ciudad
         city =  driver.find_element(By.XPATH,"//input[@name='city']")
         city.send_keys('Medellin')
 
+        # Ingresa el estado/departamento
         state =  driver.find_element(By.XPATH,"//input[@name='state']")
         state.send_keys('Antioquia')
 
+        # Ingresa el codigo postal
         postal =  driver.find_element(By.XPATH,"//input[@name='postalCode']")
         postal.send_keys('050050')
 
+        # Selecciona opciones del menu despegable de los paises
         dropdown = driver.find_element(By.XPATH, "//select[@name='country']")
         select = Select(dropdown)
         select.select_by_visible_text('COLOMBIA')
 
+        # Ingresa el usuario
         user =  driver.find_element(By.XPATH,"//input[@name='email']")
         user.send_keys('Arctyrael')
 
+        # Ingresa la contraseña
         password=driver.find_element(By.XPATH,"//input[@name='password']")
         password.send_keys('abc123')
 
+        # Verifica la contraseña
         password_confir=driver.find_element(By.XPATH, "//input[@name='confirmPassword']")
         password_confir.send_keys('abc123')
 
+        # Da clic en el boton para registrar los datos
         registro=driver.find_element(By.XPATH,"//input[@name='submit']")
         registro.click()
 
         driver.implicitly_wait(30)
 
+        # Valida que aparezca el texto en pantalla
         txtValidate = driver.find_element(By.XPATH,"//b[contains(text(),'Arctyrael')]")
-
         self.assertTrue(txtValidate.is_enabled())
 
 

@@ -47,26 +47,28 @@ Este código es otro script de prueba automatizado que utiliza Selenium con Pyth
 
 Importación de módulos y clases elementales:
 
-unittest: Importa el módulo unittest, que se utiliza para escribir y realizar pruebas unitarias en Python.
-
-HTMLTestRunner: Importa la clase HTMLTestRunner del módulo pyunitreport. HTMLTestRunner es un generador de informes HTML para pruebas unitarias.
+- unittest: Importa el módulo unittest, que se utiliza para escribir y realizar pruebas unitarias en Python.
+- HTMLTestRunner: Importa la clase HTMLTestRunner del módulo pyunitreport. HTMLTestRunner es un generador de informes HTML para pruebas unitarias.
 
 Configuración del entorno (setUp):
 
-Descarga y descomprime la última versión de EdgeDriver desde la URL proporcionada.
-
+- Descarga y descomprime la última versión de EdgeDriver desde la URL proporcionada.
 Prueba de ejecución de la compra (test_realizar_compra):
-
-Introduzca el nombre y la contraseña del cliente en los campos correspondientes.
-
-Navegue a la página de reserva.
-
-Completar una secuencia de selecciones en los cuestionarios, como elegir el lugar de origen, el mes y día de salida, el lugar de destino, etc.
+- Introduzca el nombre y la contraseña del cliente en los campos correspondientes.
+- Navegue a la página de reserva.
+- Completar una secuencia de selecciones en los cuestionarios, como elegir el lugar de origen, el mes y día de salida, el lugar de destino, etc.
 
 Ejecución del script:
 
-La condición if __name__ == "__main__": garantiza que el script sólo se ejecutará si se ejecuta directamente como programa.
+- La condición if __name__ == "__main__": garantiza que el script sólo se ejecutará si se ejecuta directamente como programa.
+- unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reports', report_name='Reservation-test-report')) inicia la ejecución de las pruebas.
 
-unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reports', report_name='Reservation-test-report')) inicia la ejecución de las pruebas.
+## Ejecución
 
+Para realizar la ejecución debemos tener instalado Python y lanzamos el comando "pip install -r requirements.txt" para instalar los modulos del proyecto.
 
+Ya con los modulos instalados, ejecutamos el comando "python registro_usuario.py" para ejecutar las pruebas del registro de usuario y el comando "python reservar_vuelo.py" para ejecutar las pruebas de la reserva de vuelo.
+
+### Reporte
+
+Una vez se ejecuten las pruebas, aparece una carpeta llamada reports que contiene otra carpeta llamada reportes que contendran archivos .html con los reportes de las ejecuciones.
